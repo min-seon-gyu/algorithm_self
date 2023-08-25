@@ -8,9 +8,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 백준_2252 {
-    public static void main(String[] args) throws IOException {
+public class 백준_2623 {
 
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         StringBuilder sb = new StringBuilder();
@@ -26,12 +26,14 @@ public class 백준_2252 {
         }
 
         for(int i = 0 ; i < M ; i++){
-            st = new StringTokenizer(br.readLine());
-            int V1 = Integer.parseInt(st.nextToken());
-            int V2 = Integer.parseInt(st.nextToken());
-
-            lst[V1].add(V2);
-            arr[V2]++;
+            String[] str = br.readLine().split("\\s");
+            int total = Integer.parseInt(str[0]);
+            for(int j = 1 ; j < total ; j++){
+                int V1 = Integer.parseInt(str[j]);
+                int V2 = Integer.parseInt(str[j+1]);
+                lst[V1].add(V2);
+                arr[V2]++;
+            }
         }
 
         Queue<Integer> q = new LinkedList<>();
@@ -57,6 +59,8 @@ public class 백준_2252 {
 
         if(count == N){
             System.out.println(sb);
+        }else{
+            System.out.println(0);
         }
     }
 }
