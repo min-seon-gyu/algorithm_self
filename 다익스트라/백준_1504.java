@@ -25,6 +25,7 @@ public class 백준_1504 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+        final int INF = Integer.MAX_VALUE;
 
         int N = Integer.parseInt(st.nextToken());
         int E = Integer.parseInt(st.nextToken());
@@ -33,7 +34,7 @@ public class 백준_1504 {
         ArrayList<Node>[] lst = new ArrayList[N+1];
 
         for(int i = 1 ; i <= N ; i++){
-            Arrays.fill(answer[i], 200000000);
+            Arrays.fill(answer[i], INF);
             lst[i] = new ArrayList<>();
         }
 
@@ -76,10 +77,10 @@ public class 백준_1504 {
             }
         }
 
-        long sum1 = answer[1][v1] + answer[v1][v2] + answer[v2][N];
-        long sum2 = answer[1][v2] + answer[v2][v1] + answer[v1][N];
+        long sum1 = (long)answer[1][v1] + (long)answer[v1][v2] + (long)answer[v2][N];
+        long sum2 = (long)answer[1][v2] + (long)answer[v2][v1] + (long)answer[v1][N];
 
-        if(sum1 >= 200000000 && sum2 >= 200000000){
+        if(sum1 >= INF && sum2 >= INF){
             System.out.println(-1);
         }else{
             System.out.println(Math.min(sum1, sum2));
