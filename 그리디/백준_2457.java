@@ -24,7 +24,6 @@ public class 백준_2457 {
             return this.start - o.start;
         }
     }
-    public static int[] days = new int[13];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
@@ -77,7 +76,6 @@ public class 백준_2457 {
 
             answer++;
             value = max;
-            if(value > endValue) break;
         }
         if(value > endValue){
             System.out.println(answer);
