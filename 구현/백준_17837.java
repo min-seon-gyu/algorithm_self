@@ -134,7 +134,10 @@ public class 백준_17837 {
                     }
                 }
             }
+
             return units[nx][ny].size() >= 4;
+
+
         }else{
             if(dir == 1){
                 dirs[number] = 2;
