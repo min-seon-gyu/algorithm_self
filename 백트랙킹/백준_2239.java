@@ -20,7 +20,9 @@ public class 백준_2239 {
     }
 
     private static void go(int x, int y) {
-if(flag) return;
+
+        if(flag) return;
+
         if(y > 8){
             x++;
             y = 0;
