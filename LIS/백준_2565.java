@@ -12,15 +12,15 @@ public class 백준_2565 {
 
         int[][] arr = new int[N][2];
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
         for(int i = 0; i < N ; i++){
-            arr[i][0] = i+1;
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            arr[i][0] = Integer.parseInt(st.nextToken());
             arr[i][1] = Integer.parseInt(st.nextToken());
         }
 
         Arrays.sort(arr, new Comparator<int[]>(){
             @Override
-            public int compare(int[] a1, int[]a2){
+            public int compare(int[] a1, int[] a2){
                 return a1[0] - a2[0];
             }
         });
