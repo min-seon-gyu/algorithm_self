@@ -53,12 +53,6 @@ public class 백준_15681 {
         int[] answer = new int[N+1];
         dp(answer, c, R);
 
-        String str = "asd";
-        str.equals("123");
-
-
-
-
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < Q ; i++){
             int idx = Integer.parseInt(br.readLine());
