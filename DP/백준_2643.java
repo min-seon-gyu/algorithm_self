@@ -1,4 +1,4 @@
-package LIS;
+package DP;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +16,9 @@ public class 백준_2643 {
 
         @Override
         public int compareTo(Paper p){
+            if(this.x == p.x){
+                return this.y - p.y;
+            }
             return this.x - p.x;
         }
     }
@@ -40,28 +43,18 @@ public class 백준_2643 {
         Arrays.sort(arr);
 
         int[] dp = new int[N];
-        Arrays.fill(dp, 1000);
-
-        int count = 0;
-
-        for(int i = 0 ; i < N ; i++){
-            if(count == 0){
-                dp[count] = arr[i].y;
-                count++;
-                continue;
-            }
-
-            if(dp[count-1] <= arr[i].y){
-                dp[count] = arr[i].y;
-                count++;
-            }else{
-                int idx = Arrays.binarySearch(dp, arr[i].y);
-                if (idx < 0) {
-                    idx = (idx + 1) * -1;
+        int max = 1;
+        Arrays.fill(dp, 1);
+        for (int i = 1; i < N; i++) {
+            for (int j = 0; j < i; j++) {
+                if(arr[i].x >= arr[j].x && arr[i].y >= arr[j].y) {
+                    dp[i] = Math.max(dp[i], dp[j]+1);
+                    max = Math.max(max ,dp[i]);
                 }
-                dp[idx] = arr[i].y;
             }
         }
-        System.out.println(count);
+
+
+        System.out.println(max);
     }
 }
